@@ -132,7 +132,7 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-</body></html>`);w.document.close()}
+<script>
 function dataFinance(){let [s,e]=range(),sales=db.tx.filter(t=>t.type==="out"&&t.date.slice(0,10)>=s&&t.date.slice(0,10)<=e),cash=db.cash.filter(c=>c.date.slice(0,10)>=s&&c.date.slice(0,10)<=e);return{s,e,sales,cash}}
 function csv(rows,name){let text=rows.map(r=>r.map(v=>`"${String(v??"").replaceAll('"','""')}"`).join(",")).join("\n"),a=document.createElement("a"),u=URL.createObjectURL(new Blob([text],{type:"text/csv"}));a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),500)}
 function xls(rows,name){let text=rows.map(r=>r.join("\t")).join("\n"),a=document.createElement("a"),u=URL.createObjectURL(new Blob([text],{type:"application/vnd.ms-excel"}));a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),500)}
@@ -156,6 +156,23 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("./sw.js").catch(() => {});
   });
 }
+</script>
+
+<script>
+function dataFinance() {
+   ...
+}
+
+function csv(...) {
+   ...
+}
+
+function xls(...) {
+   ...
+}
+
+/* fungsi-fungsi lainnya sampai yang paling terakhir */
+
 </script>
 </body>
 </html>
